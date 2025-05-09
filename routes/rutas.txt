@@ -1,0 +1,12 @@
+/mInstrumental              # Directori arrel
+│
+├── /views                  # Directori de les vistes
+    ├── /artista            # Aqui anirà l'arxiu de la vista per veure totes les cançons asociades a un artista.
+    ├── /auth               # Aqui anirà l'auth per defecte, en aquest cas de Laravel:Breeze.
+    ├── /canciones          # Aqui podem editar una canço, mostrarl-la o escriure.
+    ├── /components         # Aquí están els components "plantilles" que s'utilitzen
+    ├── /dashboard          # Aquí están totes les vistes per poder fer un maneig de la pàgina web.
+    ├── /genero             # Aquí podem veure totes les cancçons asociades aun genere.    
+    ├── /home               # Aquí està la part publica, la que veiem quan no estem loguejats o no som admins.
+    ├── /layouts            # Aquí està la plantilla per defecte.
+    └── /profile            # Pàgina per controlar els perfils (també per defecte).
