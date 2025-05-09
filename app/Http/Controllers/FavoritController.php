@@ -17,24 +17,30 @@ class FavoritController extends Controller
             'id_usuari' => 'required|integer',
             'id_canco' => 'required|integer',
         ]);
-    
+
         $favorit = Favorit::where('id_usuari', $request->id_usuari)
-                          ->where('id_canco', $request->id_canco)
-                          ->first();
-    
+                        ->where('id_canco', $request->id_canco)
+                        ->first();
+
         if ($favorit) {
             $favorit->delete();
-            return response()->json(['status' => 'removed']);
         } else {
             Favorit::create([
                 'id_usuari' => $request->id_usuari,
                 'id_canco' => $request->id_canco,
                 'favorit' => true,
             ]);
-            return response()->json(['status' => 'added']);
         }
-    }   
-      
+
+        $cancion = Canciones::find($request->id_canco);
+        $artista = $cancion->artista;
+
+        return redirect()->route('canciones.mostrar', [
+            'nombre_artista' => str_replace(' ', '_', strtolower($artista->nom_artista)),
+            'nombre_cancion' => str_replace(' ', '_', strtolower($cancion->nom_canco)),
+        ]);
+    }
+   
 
     public function misFavs(Request $request)
     {

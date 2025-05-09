@@ -17,6 +17,7 @@
 
                 div pre {
                     overflow-x: auto;
+                    text-align: left;
                 }
 
                 @media (max-width: 640px) {
@@ -34,7 +35,6 @@
 
                     .columna-vertical {
                         display: flex;
-                        text-align: center;
                         flex-direction: column;
                         gap: 1.5rem;
                         padding: 1.5rem;
@@ -61,13 +61,26 @@
                                     {{ $cancion->artista->nom_artista }} - {{ $cancion->nom_canco }}
                                 </h2>
 
+
                                 <div class="flex justify-center">
-                                    <button 
-                                        id="botoFavorit" onclick="toggleFavorit({{ auth()->id() }}, {{ $cancion->id_canco }})"
-                                        class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                                        <i class="fa-solid fa-heart"></i> Añadir a Favoritos
-                                    </button>
+                                    <!-- Botón de favoritos -->
+                                    <form action="{{ route('favorits.toggle') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id_usuari" value="{{ auth()->id() }}">
+                                        <input type="hidden" name="id_canco" value="{{ $cancion->id_canco }}">
+
+                                        @if ($esFavorit)
+                                            <button type="submit" class="text-md hover:text-gray-500 text-red-600 mb-4">
+                                                <i class="fa-solid fa-heart-circle-check"></i> Eliminar de favoritos
+                                            </button>
+                                        @else
+                                            <button type="submit" class="text-md mb-4">
+                                                <i class="fa-solid fa-heart-circle-plus"></i> Añadir a favoritos
+                                            </button>
+                                        @endif
+                                    </form>
                                 </div>
+
 
                                 <p style="font-size: 12px;">
                                     Colaborador/a: {{ $cancion->usuari->username }}
@@ -78,7 +91,7 @@
                                         'nombre_artista' => str_replace(' ', '_', strtolower($cancion->artista->nom_artista)),
                                         'nombre_cancion' => str_replace(' ', '_', strtolower($cancion->nom_canco))
                                     ]) }}"
-                                    class="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-md text-sm font-semibold">
+                                    class="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-md text-sm font-semibold">
                                         <i class="fa-regular fa-pen-to-square"></i> Editar Canción
                                     </a>
                                 @endif
@@ -93,16 +106,16 @@
                         <div class="grid grid-cols-2 h-screen mx-auto">
                             <div class="justify-center text-left h-32 bg-gray-200 columna-vertical">
 
-                                <a target="_blank" href="{{ $cancion->link_spotify }}" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a target="_blank" href="{{ $cancion->link_spotify }}" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     <i class="fa-brands fa-spotify"></i> Escuchar en Spotify
                                 </a>
-                                <a target="_blank" href="{{ $cancion->link_youtube }}" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a target="_blank" href="{{ $cancion->link_youtube }}" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     <i class="fa-brands fa-youtube"></i> Escuchar en YouTube
                                 </a>
-                                <a target="_blank" href="{{ $cancion->link_apple }}" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a target="_blank" href="{{ $cancion->link_apple }}" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     <i class="fa-brands fa-apple"></i> Escuchar en Apple Music
                                 </a>
-                                <a target="_blank" href="{{ $cancion->link_amazon }}" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a target="_blank" href="{{ $cancion->link_amazon }}" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     <i class="fa-brands fa-amazon"></i> Escuchar en Amazon Music
                                 </a>
                             </div>
@@ -114,33 +127,6 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            function toggleFavorit(idUsuari, idCanco) {
-                fetch("{{ route('favorits.toggle') }}", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    },
-                    body: JSON.stringify({
-                        id_usuari: idUsuari,
-                        id_canco: idCanco
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    const boton = document.getElementById('botoFavorit');
-                    if (data.status == 'added') {
-                        alert('Canción añadida a favoritos');
-                        boton.innerHTML = '<i class="fa-solid fa-heart"></i> Eliminar de favoritos';
-                    } else if (data.status == 'removed') {
-                        alert('Canción eliminada de favoritos');
-                        boton.innerHTML = '<i class="fa-solid fa-heart"></i> Añadir a favoritos';
-                    }
-                });
-            }
-        </script>
     </x-app-user>
 @else
 <x-app-noUser>
@@ -161,6 +147,7 @@
 
                 div pre {
                     overflow-x: auto;
+                    text-align: left;
                 }
 
                 @media (max-width: 640px) {
@@ -178,10 +165,8 @@
 
                     .columna-vertical {
                         display: flex;
-                        text-align: center;
                         flex-direction: column;
-                        gap: 1.5rem;
-                        padding: 1.5rem;
+
                     }
                 }
             </style>
@@ -218,16 +203,16 @@
                         <!-- Letra de la canción -->
                         <div class="grid grid-cols-2 h-screen mx-auto">
                             <div class="justify-center text-left h-32 bg-gray-200 columna-vertical">
-                                <a target="_blank" href="libreria_acordes" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a target="_blank" href="libreria_acordes" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     <i class="fa-brands fa-spotify"></i> Escuchar en Spotify
                                 </a>
-                                <a target="_blank" href="artistas" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a target="_blank" href="artistas" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     <i class="fa-brands fa-youtube"></i> Escuchar en YouTube
                                 </a>
-                                <a target="_blank" href="generos" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a target="_blank" href="generos" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     <i class="fa-brands fa-apple"></i> Escuchar en Apple Music
                                 </a>
-                                <a target="_blank" href="generos" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                                <a target="_blank" href="generos" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                                     <i class="fa-brands fa-amazon"></i> Escuchar en Amazon Music
                                 </a>
                             </div>

@@ -4,7 +4,9 @@
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 <i class="fa-solid fa-house"></i> {{ __('Home') }}
             </h2>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" crossorigin="anonymous">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-tables.css') }}">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" crossorigin="anonymous">
+            <script src="{{ asset('js/logo.js') }}"></script>
             <style>
                 @media (max-width: 1024px) {
                     .grid-cols-2 {
@@ -35,16 +37,16 @@
 
                         <br>
 
-                        <a href="libreria_acordes" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        <a href="libreria_acordes" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                             <i class="fa-solid fa-book"></i> Libreria de Acordes
                         </a>
-                        <a href="artistas" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        <a href="artistas" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                             <i class="fas fa-music"></i> Artistas / Grupos
                         </a>
-                        <a href="generos" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        <a href="generos" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                             <i class="fas fa-tags"></i> Géneros
                         </a>
-                        <a href="canciones" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        <a href="canciones" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                             <i class="fas fa-compact-disc"></i> Canciones
                         </a>
                     </div>
@@ -54,7 +56,7 @@
                     <div class="grid grid-cols-2 gap-6 text-gray-900 dark:text-gray-100">
                         <!-- Columna izquierda -->
                         <div>
-                            <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="mx-auto" style="max-width: 45%;">
+                            <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="mx-auto logo" style="max-width: 45%;">
                         </div>
 
                         <!-- Columna derecha -->
@@ -119,10 +121,11 @@
     <x-app-noUser>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('Home') }}
+                <i class="fa-solid fa-house"></i> {{ __('Home') }}
             </h2>
             <link rel="stylesheet" href="{{ asset('css/bootstrap-tables.css') }}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" crossorigin="anonymous">
+            <script src="{{ asset('js/logo.js') }}"></script>
             <style>
                 @media (max-width: 1024px) {
                     .grid-cols-2 {
@@ -156,20 +159,20 @@
 
                         <br>
 
-                        <a href="register" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        <a href="register" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                             <i class="fa-solid fa-address-card"></i> Regístrate
                         </a>
-                        <a href="login" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        <a href="login" class="bg-blue-500 hover:bg-blue-600 p-4 rounded-lg flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                             <i class="fa-solid fa-circle-user"></i> Inicia Sesión
                         </a>
                     </div>
-
+                    
                     <hr><br>
 
                     <div class="grid grid-cols-2 gap-6 text-gray-900 dark:text-gray-100">
                         <!-- Columna izquierda -->
                         <div>
-                            <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="mx-auto" style="max-width: 45%;">
+                            <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="mx-auto logo" style="max-width: 45%;">
                         </div>
 
                         <!-- Columna derecha -->
@@ -202,7 +205,7 @@
                         </div>
                                 
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/LibreriaDeAcordes.jpg') }}" alt="Imagen Piano" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">

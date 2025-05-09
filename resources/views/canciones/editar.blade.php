@@ -95,15 +95,15 @@
                                 <div class="flex flex-col text-left h-32 bg-gray-200">
                                     <div class="mb-4">
                                         <label for="nom_canco" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Título de la canción</label>
-                                        <input type="text" value="{{ $cancion->nom_canco }}" name="nom_canco" id="nom_canco" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                                        <input type="text" value="{{ $cancion->nom_canco }}" name="nom_canco" id="nom_canco" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                                     </div>
                                     <label for="lletra_canco" class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                                         Escribe la letra de la canción:
                                     </label>
                                     <textarea name="lletra_canco" class="w-full p-2 font-mono text-sm text-gray-900 dark:text-gray-100 dark:bg-gray-900 resize-none" rows="6">{{ $cancion->lletra_canco }}</textarea>
                                     <div class="mt-6 flex justify-between">
-                                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Actualizar canción</button>
-                                        <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onclick="location.href='/canciones'">Cancelar</button>
+                                        <button type="submit" class="bg-gray-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Actualizar canción</button>
+                                        <button type="button" class="bg-gray-500 hover:bg-gray-900 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onclick="location.href='/canciones'">Cancelar</button>
                                     </div>
                                 </div>
                             </form>

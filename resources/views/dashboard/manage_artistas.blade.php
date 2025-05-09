@@ -28,6 +28,20 @@
                 text-align: right;
             }
 
+            .modal-overlay {
+                background-color: rgba(255, 255, 255, 0.5); /* blanco con opacidad */
+                backdrop-filter: blur(2px);
+                transition: background-color 0.3s ease;
+            }
+
+            .dark .modal-overlay {
+                background-color: rgba(0, 0, 0, 0.5); /* negro con opacidad */
+            }
+
+            div.bg-white {
+                z-index: 10;
+            }
+
             @media (min-width: 641px) {
                 .form-container {
                     flex-direction: row;
@@ -65,7 +79,7 @@
 
                     <!-- Botón para añadir artista -->
                     <div class="mb-4 flex justify-center">
-                        <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md" onclick="openModal('modalAdd')">
+                        <button class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md" onclick="openModal('modalAdd')">
                             <i class="fas fa-plus mr-2"></i> Añadir artista
                         </button>
                     </div>
@@ -122,6 +136,8 @@
     <!-- Modal de edición -->
     @foreach ($artistas as $artista)
         <div id="modalEdit{{ $artista->id_artista }}" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center h-full w-full hidden z-50">
+            <div class="modal-overlay absolute inset-0"></div>
+            
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-1/2 mx-auto">
                 <div class="p-6">
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Editar Artista</h2>
@@ -130,14 +146,14 @@
                         @method('PUT')
                         <div class="mb-4">
                             <label for="nom_artista" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nombre del artista</label>
-                            <input type="text" name="nom_artista" id="nom_artista" value="{{ $artista->nom_artista }}" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <input type="text" name="nom_artista" id="nom_artista" value="{{ $artista->nom_artista }}" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div class="mb-4">
                             <label for="imatge_artista" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Imagen del artista</label>
-                            <input type="text" name="imatge_artista" id="imatge_artista" value="{{ $artista->imatge_artista }}" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <input type="text" name="imatge_artista" id="imatge_artista" value="{{ $artista->imatge_artista }}" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div class="mt-6 flex justify-between">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Guardar Cambios</button>
+                            <button type="submit" style="background-color: blue; margin-right: 10px;" class="hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Guardar Cambios</button>
                             <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onclick="closeModal('modalEdit{{ $artista->id_artista }}')">Cancelar</button>
                         </div>
                     </form>
@@ -149,6 +165,8 @@
     <!-- Modal de confirmación para eliminar -->
     @foreach ($artistas as $artista)
         <div id="modalDelete{{ $artista->id_artista }}" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center h-full w-full hidden z-50">
+            <div class="modal-overlay absolute inset-0"></div>
+
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-1/2 mx-auto">
                 <div class="p-6">
                     <h2 class="text-xl font-semibold text-red-600 dark:text-red-500 mb-4">¿Seguro que quieres eliminar el artista {{ $artista->nom_artista }}?</h2>
@@ -157,7 +175,7 @@
                         @csrf
                         @method('DELETE')
                         <div class="flex justify-between">
-                            <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Eliminar</button>
+                            <button type="submit" style="background-color: red;" class="hover:bg-red-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Eliminar</button>
                             <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onclick="closeModal('modalDelete{{ $artista->id_artista }}')">Cancelar</button>
                         </div>
                     </form>
@@ -168,6 +186,7 @@
 
     <!-- Modal para Añadir Artista -->
     <div id="modalAdd" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center h-full w-full hidden z-50">
+        <div class="modal-overlay absolute inset-0"></div>
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-1/2 mx-auto">
             <div class="p-6">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Añadir Artista</h2>
@@ -175,14 +194,14 @@
                     @csrf
                     <div class="mb-4">
                         <label for="nom_artista" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nombre del Artista</label>
-                        <input type="text" name="nom_artista" id="nom_artista" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                        <input type="text" name="nom_artista" id="nom_artista" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
                     <div class="mb-4">
                         <label for="imatge_artista" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Imagen del Artista</label>
-                        <input type="text" name="imatge_artista" id="imatge_artista" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                        <input type="text" name="imatge_artista" id="imatge_artista" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
                     </div>
                     <div class="mt-6 flex justify-between">
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Añadir</button>
+                        <button type="submit" style="background-color: green;" class="hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Añadir</button>
                         <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onclick="closeModal('modalAdd')">Cancelar</button>
                     </div>
                 </form>

@@ -49,7 +49,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <p class="mb-2" style="color: white;">Los campos con * son obligatorios</p>
+            <p class="mb-2" style="color: red;">Los campos con * son obligatorios</p>
             <x-primary-button>{{ __('Guardar') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')

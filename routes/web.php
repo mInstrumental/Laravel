@@ -215,6 +215,7 @@ Route::post('/favorits/toggle', [FavoritController::class, 'toggle'])
     ->middleware(['auth', 'verified'])
     ->name('favorits.toggle');
 
+
 Route::get('/mis_favoritos', [FavoritController::class, 'misFavs'])
     ->middleware(['auth', 'verified'])
     ->name('mis_favoritos');

@@ -63,7 +63,7 @@
                         </form>
 
                         <div class="mb-4 flex justify-center">
-                            <button type="button" onclick="location.href='/escribir_cancion'" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">
+                            <button type="button" onclick="location.href='/escribir_cancion'" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md">
                                 <i class="fas fa-plus mr-2"></i> Añadir canción
                             </button>
                         </div>

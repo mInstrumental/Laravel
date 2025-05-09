@@ -1,3 +1,4 @@
+<script src="{{ asset('js/logo.js') }}"></script>
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <style>
         .switch {
@@ -52,7 +53,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200 logo" />
                     </a>
                 </div>
 

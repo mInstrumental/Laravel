@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artista;
 use App\Models\Canciones;
 use App\Models\Genere;
+use App\Models\Favorit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -122,8 +123,16 @@ class CancionesController extends Controller
     
         // Trae todos los géneros (por si quieres mostrar el género de la canción o un menú)
         $generes = Genere::all();
+
+        // Comprobar si es favorito
+        $esFavorit = false;
+        if (auth()->check()) {
+            $esFavorit = Favorit::where('id_usuari', auth()->id())
+                                ->where('id_canco', $cancion->id_canco)
+                                ->exists();
+        }
     
-        return view('canciones.mostrar', compact('artista', 'cancion', 'generes'));
+        return view('canciones.mostrar', compact('artista', 'cancion', 'generes', 'esFavorit'));
     }
 
     public function store(Request $request)

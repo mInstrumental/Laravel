@@ -36,6 +36,20 @@
                 text-align: right;
             }
 
+            .modal-overlay {
+                background-color: rgba(255, 255, 255, 0.5); /* blanco con opacidad */
+                backdrop-filter: blur(2px);
+                transition: background-color 0.3s ease;
+            }
+
+            .dark .modal-overlay {
+                background-color: rgba(0, 0, 0, 0.5); /* negro con opacidad */
+            }
+
+            div.bg-white {
+                z-index: 10;
+            }
+
             @media (min-width: 641px) {
                 .form-container {
                     flex-direction: row;
@@ -125,6 +139,7 @@
     <!-- Modal de edición -->
     @foreach ($canciones as $cancion)
         <div id="modalEdit{{ $cancion->id_canco }}" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center h-full w-full hidden z-50">
+            <div class="modal-overlay absolute inset-0"></div>
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-1/2 mx-auto">
                 <div class="p-6">
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Editar Canción</h2>
@@ -133,27 +148,27 @@
                         @method('PUT')
                         <div class="mb-4">
                             <label for="nom_canco" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nombre de la canción</label>
-                            <input type="text" name="nom_canco" id="nom_canco" value="{{ $cancion->nom_canco }}" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <input type="text" name="nom_canco" id="nom_canco" value="{{ $cancion->nom_canco }}" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
 
                         <div class="mb-4">
                             <label for="link_spotify" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Link a Spotify</label>
-                            <input type="text" name="link_spotify" id="link_spotify" value="{{ $cancion->link_spotify }}" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <input type="text" name="link_spotify" id="link_spotify" value="{{ $cancion->link_spotify }}" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div class="mb-4">
                             <label for="link_youtube" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Link a YouTube</label>
-                            <input type="text" name="link_youtube" id="link_youtube" value="{{ $cancion->link_youtube }}" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <input type="text" name="link_youtube" id="link_youtube" value="{{ $cancion->link_youtube }}" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div class="mb-4">
                             <label for="link_apple" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Link a Apple</label>
-                            <input type="text" name="link_apple" id="link_apple" value="{{ $cancion->link_apple }}" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <input type="text" name="link_apple" id="link_apple" value="{{ $cancion->link_apple }}" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div class="mb-4">
                             <label for="link_amazon" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Link a Amazon</label>
-                            <input type="text" name="link_amazon" id="link_amazon" value="{{ $cancion->link_amazon }}" class="text-white mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <input type="text" name="link_amazon" id="link_amazon" value="{{ $cancion->link_amazon }}" class="mt-1 block w-full p-2 border border-gray-300 dark:bg-gray-100 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div class="mt-6 flex justify-between">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Guardar Cambios</button>
+                            <button type="submit" style="background-color: blue; margin-right: 10px;" class="hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Guardar Cambios</button>
                             <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onclick="closeModal('modalEdit{{ $cancion->id_canco }}')">Cancelar</button>
                         </div>
                     </form>
@@ -165,6 +180,7 @@
     <!-- Modal de confirmación para eliminar -->
     @foreach ($canciones as $cancion)
         <div id="modalDelete{{ $cancion->id_canco }}" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center h-full w-full hidden z-50">
+            <div class="modal-overlay absolute inset-0"></div>
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg w-1/2 mx-auto">
                 <div class="p-6">
                     <h2 class="text-xl font-semibold text-red-600 dark:text-red-500 mb-4">¿Seguro que quieres eliminar la canción {{ $cancion->nom_canco }} de {{ $cancion->usuari->username }}?</h2>
@@ -173,7 +189,7 @@
                         @csrf
                         @method('DELETE')
                         <div class="flex justify-between">
-                            <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Eliminar</button>
+                            <button type="submit" style="background-color: red;"class="hover:bg-red-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Eliminar</button>
                             <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2" onclick="closeModal('modalDelete{{ $cancion->id_canco }}')">Cancelar</button>
                         </div>
                     </form>

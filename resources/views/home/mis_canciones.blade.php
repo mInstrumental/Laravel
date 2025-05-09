@@ -2,7 +2,7 @@
 <x-app-user>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                <i class="fas fa-compact-disc"></i> {{ __('Mis Canciones') }}
+                <i class="fa-solid fa-bookmark"></i> {{ __('Mis Canciones') }}
             </h2>
             <link rel="stylesheet" href="{{ asset('css/bootstrap-tables.css') }}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" crossorigin="anonymous">
@@ -48,11 +48,6 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <div class="mb-4 flex justify-center">
-                            <button type="button" onclick="location.href='/escribir_cancion'" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">
-                                <i class="fas fa-plus mr-2"></i> Añadir canción
-                            </button>
-                        </div>
 
                         <form method="GET" class="form-container" style="color: black">
                             <div class="form-left">
@@ -67,6 +62,12 @@
                                 </select>
                             </div>
                         </form>
+
+                        <div class="mb-4 flex justify-center">
+                            <button type="button" onclick="location.href='/escribir_cancion'" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md">
+                                <i class="fas fa-plus mr-2"></i> Añadir canción
+                            </button>
+                        </div>
 
                         <!-- Título "Canciones" -->
                         <h2 class="text-lg font-semibold text-center mb-4">Mis Canciones</h2>

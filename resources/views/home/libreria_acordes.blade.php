@@ -6,6 +6,7 @@
             </h2>
             <link rel="stylesheet" href="{{ asset('css/bootstrap-tables.css') }}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" crossorigin="anonymous">
+            <script src="{{ asset('js/logo.js') }}"></script>
             <style>
                 @media (max-width: 1024px) {
                     .grid-cols-2 {
@@ -30,7 +31,7 @@
                     <div class="grid grid-cols-2 gap-6 text-gray-900 dark:text-gray-100 mb-6">
                         <!-- Columna izquierda -->
                         <div>
-                            <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="mx-auto" style="max-width: 45%;">
+                            <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="mx-auto logo" style="max-width: 45%;">
                         </div>
 
                         <!-- Columna derecha -->
@@ -140,6 +141,7 @@
             </h2>
             <link rel="stylesheet" href="{{ asset('css/bootstrap-tables.css') }}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" crossorigin="anonymous">
+            <script src="{{ asset('js/logo.js') }}"></script>
             <style>
                 @media (max-width: 1024px) {
                     .grid-cols-2 {
@@ -164,7 +166,7 @@
                     <div class="grid grid-cols-2 gap-6 text-gray-900 dark:text-gray-100 mb-6">
                         <!-- Columna izquierda -->
                         <div>
-                            <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="mx-auto" style="max-width: 45%;">
+                            <img src="{{ asset('images/logoBlanco.png') }}" alt="Logo" class="mx-auto logo" style="max-width: 45%;">
                         </div>
 
                         <!-- Columna derecha -->

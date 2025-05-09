@@ -2,7 +2,7 @@
 <x-app-user>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                <i class="fas fa-compact-disc"></i> {{ __('Mis Canciones') }}
+                <i class="fa-solid fa-heart"></i> {{ __('Mis Canciones Favoritas') }}
             </h2>
             <link rel="stylesheet" href="{{ asset('css/bootstrap-tables.css') }}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.0/css/all.css" crossorigin="anonymous">
@@ -64,7 +64,7 @@
                         </form>
 
                         <!-- Título "Canciones" -->
-                        <h2 class="text-lg font-semibold text-center mb-4">Mis Canciones</h2>
+                        <h2 class="text-lg font-semibold text-center mb-4">Mis Canciones Favoritas</h2>
 
                         <!-- Tabla -->
                         <div class="table-responsive">
