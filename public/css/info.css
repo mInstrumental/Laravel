@@ -1,0 +1,16 @@
+li{
+    margin-bottom: 7px;
+}
+
+div.text-center img {
+    max-width: 30%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 7px;
+}
+
+@media (max-width: 1024px) {
+    div.text-center img {
+        max-width: 80%;
+    }
+}

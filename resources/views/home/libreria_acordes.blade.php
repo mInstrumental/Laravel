@@ -55,7 +55,7 @@
                     
                     <div class="flex flex-wrap justify-center gap-6 p-6 columna-vertical">
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/guitarra" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/guitarra.jpg') }}" alt="Imagen Guitarra" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -67,7 +67,7 @@
                         </div>
                         
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/piano" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/piano.jpg') }}" alt="Imagen Piano" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -79,7 +79,7 @@
                         </div>
                         
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/violin" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/violin.jpg') }}" alt="Imagen Violín" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -93,7 +93,7 @@
 
                     <div class="flex flex-wrap justify-center gap-6 p-6 columna-vertical">
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/bateria" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/bateria.jpg') }}" alt="Imagen Guitarra" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -105,7 +105,7 @@
                         </div>
                         
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/flauta_travesera" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/flauta_travesera.jpg') }}" alt="Imagen Piano" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -117,7 +117,7 @@
                         </div>
                         
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/ukelele" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/ukelele.jpg') }}" alt="Imagen Violín" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -190,7 +190,7 @@
                     
                     <div class="flex flex-wrap justify-center gap-6 p-6 columna-vertical">
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/guitarra" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/guitarra.jpg') }}" alt="Imagen Guitarra" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -202,7 +202,7 @@
                         </div>
                         
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/piano" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/piano.jpg') }}" alt="Imagen Piano" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -214,7 +214,7 @@
                         </div>
                         
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/violin" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/violin.jpg') }}" alt="Imagen Violín" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -228,7 +228,7 @@
 
                     <div class="flex flex-wrap justify-center gap-6 p-6 columna-vertical">
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/bateria" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/bateria.jpg') }}" alt="Imagen Guitarra" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -240,7 +240,7 @@
                         </div>
                         
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/flauta_travesera" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/flauta_travesera.jpg') }}" alt="Imagen Piano" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -252,7 +252,7 @@
                         </div>
                         
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="libreria_acordes/ukelele" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/ukelele.jpg') }}" alt="Imagen Violín" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">

@@ -27,6 +27,31 @@ Route::get('/libreria_acordes', function () {
     return view('home.libreria_acordes');
 })->name('libreria_acordes');
 
+Route::get('/libreria_acordes/guitarra', function () {
+    return view('libreria_acordes.guitarra');
+})->name('guitarra');
+
+Route::get('/libreria_acordes/piano', function () {
+    return view('libreria_acordes.piano');
+})->name('piano');
+
+Route::get('/libreria_acordes/violin', function () {
+    return view('libreria_acordes.violin');
+})->name('violin');
+
+Route::get('/libreria_acordes/bateria', function () {
+    return view('libreria_acordes.bateria');
+})->name('bateria');
+
+Route::get('/libreria_acordes/flauta_travesera', function () {
+    return view('libreria_acordes.flauta_travesera');
+})->name('flauta_travesera');
+
+Route::get('/libreria_acordes/ukelele', function () {
+    return view('libreria_acordes.ukelele');
+})->name('ukelele');
+
+
 Route::get('/afinar_instrumento', function () {
     return view('home.afinar_instrumento');
 })->name('afinar_instrumento');
@@ -43,6 +68,10 @@ Route::get('/aviso_legal', function () {
 Route::get('/politica_cookies', function () {
     return view('home.politica_cookies');
 })->name('politica_cookies');
+
+Route::get('/foro', function () {
+    return view('foro.foro');
+})->name('foro');
 
 /**
  * Ruta para ver las canciones
@@ -86,17 +115,23 @@ Route::get('/manage_artistas', [ArtistesController::class, 'manage'])
 /**
  * RUTA PARA SUBIR UN ARTISTA CON MÉTODO POST - STORE
  */
-Route::post('/manage_artistas', [ArtistesController::class, 'store'])->name('artistas.store');
+Route::post('/manage_artistas', [ArtistesController::class, 'store'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('artistas.store');
 
 /**
  * RUTA PARA ACTUALIZAR UN ARTISTTA CON MÉTODO PUT - UPDATE
  */
-Route::put('/manage_artistas/{id}', [ArtistesController::class, 'update'])->name('artistas.update');
+Route::put('/manage_artistas/{id}', [ArtistesController::class, 'update'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('artistas.update');
 
 /**
  * RUTA PARA ELIMINAR UN ARTISTA CON MÉTODO DELETE - DESTROY
  */
-Route::delete('/manage_artistas/{id}', [ArtistesController::class, 'destroy'])->name('artistas.destroy');
+Route::delete('/manage_artistas/{id}', [ArtistesController::class, 'destroy'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('artistas.destroy');
 
 
 /**
@@ -116,17 +151,23 @@ Route::get('/manage_usuarios', [UsersController::class, 'index'])
 /**
  * RUTA PARA SUBIR UN USUARIO CON MÉTODO POST STORE
  */
-Route::post('/manage_usuarios', [UsersController::class, 'store'])->name('usuarios.store');
+Route::post('/manage_usuarios', [UsersController::class, 'store'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('usuarios.store');
 
 /**
  * RUTA PARA ACTUALIZAR UN USUARIO CON MÉTODO PUT - UPDATE
  */
-Route::put('/manage_usuarios/{id}', [UsersController::class, 'update'])->name('usuarios.update');
+Route::put('/manage_usuarios/{id}', [UsersController::class, 'update'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('usuarios.update');
 
 /**
  * RUTA PARA ELIMINAR UN USUARIO CON MÉTODO DELETE - DESTROY
  */
-Route::delete('/manage_usuarios/{id}', [UsersController::class, 'destroy'])->name('usuarios.destroy');
+Route::delete('/manage_usuarios/{id}', [UsersController::class, 'destroy'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('usuarios.destroy');
 
 
 /**
@@ -145,7 +186,8 @@ Route::get('/generos', [GeneresController::class, 'index'])
 /**
  * RUTA PARA MOSTRAR TODAS LAS CANCIONES DE UN GÉNERO
  */
-Route::get('/generos/{nombre_genero}', [GeneresController::class, 'showGeneros'])->name('genero.canciones');
+Route::get('/generos/{nombre_genero}', [GeneresController::class, 'showGeneros'])
+    ->name('genero.canciones');
 
 /**
  * RUTA PARA VER LOS GÉNEROS PROTEGIDO POR AUTH
@@ -157,12 +199,16 @@ Route::get('/manage_generos', [GeneresController::class, 'manage'])
 /**
  * RUTA PARA SUBIR UN GÉNERO CON POST - STORE
  */
-Route::post('/manage_generos', [GeneresController::class, 'store'])->name('generos.store');
+Route::post('/manage_generos', [GeneresController::class, 'store'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('generos.store');
 
 /**
  * RUTA PARA EDITAR UN GÉNERO CON PUT - UPDATE
  */
-Route::put('/manage_generos/{id}', [GeneresController::class, 'update'])->name('generos.update');
+Route::put('/manage_generos/{id}', [GeneresController::class, 'update'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('generos.update');
 
 /**
  * RUTA PARA ELIMINAR UN GÉNERO CON DELETE - DESTROY
@@ -191,7 +237,9 @@ Route::get('/canciones/{nombre_artista}/{nombre_cancion}/edit', [CancionesContro
     ->middleware(['auth', 'verified'])
     ->name('editCancion');
 
-Route::put('/canciones/{nombre_artista}/{nombre_cancion}', [CancionesController::class, 'updateCancion'])->name('updateCancion');
+Route::put('/canciones/{nombre_artista}/{nombre_cancion}', [CancionesController::class, 'updateCancion'])
+    ->middleware(['auth', 'verified'])
+    ->name('updateCancion');
 
     
 
@@ -202,12 +250,16 @@ Route::get('/manage_canciones', [CancionesController::class, 'manage'])
 /**
  * RUTA PARA EDITAR UN GÉNERO CON PUT - UPDATE
  */
-Route::put('/manage_canciones/{id}', [CancionesController::class, 'update'])->name('canciones.update');
+Route::put('/manage_canciones/{id}', [CancionesController::class, 'update'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('canciones.update');
 
 /**
  * RUTA PARA ELIMINAR UN GÉNERO CON DELETE - DESTROY
  */
-Route::delete('/manage_canciones/{id}', [CancionesController::class, 'destroy'])->name('canciones.destroy');
+Route::delete('/manage_canciones/{id}', [CancionesController::class, 'destroy'])
+    ->middleware(['auth', 'verified'], IsAdmin::class)
+    ->name('canciones.destroy');
 
 use App\Http\Controllers\FavoritController;
 

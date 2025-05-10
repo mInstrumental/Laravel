@@ -101,7 +101,7 @@
                         </div>
                             
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="foro" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/InstrumentosMusicales.jpg') }}" alt="Imagen Violín" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">
@@ -217,7 +217,7 @@
                         </div>
                                 
                         <div class="w-full sm:w-1/2 lg:w-1/3">
-                            <a href="#" class="block">
+                            <a href="foro" class="block">
                                 <section class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
                                     <img src="{{ asset('images/InstrumentosMusicales.jpg') }}" alt="Imagen Violín" class="w-full h-48 object-cover">
                                     <div class="p-4 text-center">

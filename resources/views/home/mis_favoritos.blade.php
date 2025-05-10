@@ -52,7 +52,7 @@
                         <form method="GET" class="form-container" style="color: black">
                             <div class="form-left">
                                 <input type="text" name="busqueda" id="busqueda" value="{{ $busqueda }}" class="border rounded p-2" placeholder="Nombre de la canción" />
-                                <button type="submit" class="ml-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button type="submit" class="bg-gray-500 p-2 px-3 text-white rounded hover:bg-blue-600"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
 
                             <div class="form-right">
