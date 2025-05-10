@@ -30,6 +30,8 @@
                                 <br>
                                 <ul>
                                     <li>Familiarización con las partes de la flauta: embocadura, cuerpo, llaves, etc.</li>
+                                    <img src="{{ asset('images/flauta_travesera/partes.jpg') }}" alt="imagen de Flauta Transversal">
+                                    <figcaption style="color: #9ca3af; font-size: 10px;">Imagen de Flauta Transversal</figcaption>
                                     <li>Aprender la postura correcta al tocar la flauta y la técnica de respiración.</li>
                                     <li>Control básico del aire: producir un sonido claro y mantenerlo constante.</li>
                                     <li>Aprender las primeras notas: Do, Re, Mi, Fa, Sol.</li>
@@ -117,10 +119,20 @@
                                 <br>
                                 <ul>
                                     <li>Familiarización con las partes de la flauta: embocadura, cuerpo, llaves, etc.</li>
+                                    <img src="{{ asset('images/flauta_travesera/partes.jpg') }}" alt="imagen de Stradivarius Music Center">
+                                    <figcaption style="color: #9ca3af; font-size: 10px;">Imagen de Stradivarius Music Center</figcaption>
                                     <li>Aprender la postura correcta al tocar la flauta y la técnica de respiración.</li>
+                                    <img src="{{ asset('images/flauta_travesera/postura.jpg') }}" alt="imagen de Musiquina">
+                                    <figcaption style="color: #9ca3af; font-size: 10px;">Imagen de Musiquina</figcaption>
                                     <li>Control básico del aire: producir un sonido claro y mantenerlo constante.</li>
+                                    <img src="{{ asset('images/flauta_travesera/respiracion.jpg') }}" alt="imagen de Aprende Flauta Travesera">
+                                    <figcaption style="color: #9ca3af; font-size: 10px;">Imagen de Aprende Flauta Travesera</figcaption>
                                     <li>Aprender las primeras notas: Do, Re, Mi, Fa, Sol.</li>
+                                    <img src="{{ asset('images/flauta_travesera/notas.jpg') }}" alt="imagen de Organográfica">
+                                    <figcaption style="color: #9ca3af; font-size: 10px;">Imagen de Organográfica</figcaption>
                                     <li>Introducción a las primeras piezas sencillas.</li>
+                                    <img src="{{ asset('images/flauta_travesera/partitura.jpg') }}" alt="imagen de Albeiro Alexander Pinzon Salamanca">
+                                    <figcaption style="color: #9ca3af; font-size: 10px;">Imagen de Flauta Transversal</figcaption>
                                 </ul>
 
                                 <br>
@@ -133,6 +145,8 @@
                                     <li>Desarrollo de la técnica de digitación para las notas agudas y graves.</li>
                                     <li>Mejora en la calidad del tono y el control del aire.</li>
                                     <li>Aprender a leer partituras más complejas, con más variación rítmica y melódica.</li>
+                                    <img src="{{ asset('images/flauta_travesera/partituras2.webp') }}" alt="imagen de TomaPartituras">
+                                    <figcaption style="color: #9ca3af; font-size: 10px;">Imagen de TomaPartituras</figcaption>
                                     <li>Introducción a las articulaciones (legato, staccato, etc.) y el vibrato.</li>
                                     <li>Trabajo en la coordinación entre ambas manos para los cambios rápidos de llaves.</li>
                                 </ul>
@@ -145,6 +159,8 @@
                                 <br>
                                 <ul>
                                     <li>Dominio de técnicas avanzadas como trinos, mordentes y notas rápidas.</li>
+                                    <img src="{{ asset('images/flauta_travesera/partituras3.webp') }}" alt="imagen de Petival">
+                                    <figcaption style="color: #9ca3af; font-size: 10px;">Imagen de Petival</figcaption>
                                     <li>Mejora en la interpretación de piezas complejas y de diferentes estilos musicales.</li>
                                     <li>Introducción a la improvisación y creación de ornamentaciones en las partituras.</li>
                                     <li>Preparación para presentaciones en vivo y el trabajo con conjuntos de cámara y orquestas.</li>
